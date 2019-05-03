@@ -1,7 +1,7 @@
 {
-  "name": "love",
+  "name": "Triagem-para-detecao-do-sarampo",
   "version": "1.0.0",
-  "description": "",
+  "description": "Triagem para deteccao do sarampo usando uma logica simples",
   "main": "index.js",
   "browserify": {
     "transform": [
@@ -20,7 +20,7 @@
     "build-browser": "browserify build/setup.bundle.js > build/symptoms.js",
     "start": "http-server"
   },
-  "author": "Vinicius Zibetti Resko",
+  "author": "STAGIOP-BD",
   "license": "ISC",
   "devDependencies": {
     "@babel/cli": "^7.2.3",
