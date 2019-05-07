@@ -23,7 +23,6 @@
     "space-before-blocks": ["error", "always"],
 
     // override default options for rules from base configurations
-    "comma-dangle": ["error", "always"],
     "no-cond-assign": ["error", "always"],
 
     // disable rules from base configurations

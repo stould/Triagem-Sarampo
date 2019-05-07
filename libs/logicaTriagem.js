@@ -1,6 +1,6 @@
 import {
     QUESTIONS,
-} from './constants';
+} from '../libs/questions';
 
 /**
  * Get the score of all questions
@@ -24,20 +24,16 @@ function calculateScore() {
 }
 
 function getPercentage(sum) {
-    console.log(sum);
-    const x = (100.0 * sum) / 10.0;
-    return x;
+    return (100.0 * sum) / 10.0;
 }
 
 export function getResult() {
     const totalScore = calculateScore();
-    const percentage = getPercentage(totalScore);
+    const percentage = Math.ceil(getPercentage(totalScore));
     const ranges = {
-        'Tem sarampo': [80, 100],
-        'Alta chance de sarampo': [66, 80],
-        'indicio de sarampo': [46, 65],
-        'Baixo indicio de sarampo': [30, 45],
-        'Não tem sarampo': [16.5, 30],
+        'Alto indício de sarampo': [70, 100],
+        'Indício de sarampo': [45, 69],
+        'Baixo indício de sarampo': [0, 44],
     };
     for (var [key, value] of Object.entries(ranges)) {
         const low = value[0];

@@ -40,18 +40,18 @@ export const QUESTIONS = [
         inputName: 'manchas-brancas',
     },
     {
-        title: 'Otite',
-        subtitle: 'O paciente está apresentando, ou se queixando de Otite?',
-        inputName: 'otite',
+        title: 'Diarreia',
+        subtitle: 'O paciente está apresentando, ou se queixando de Diarreia?',
+        inputName: 'diarreia',
     },
     {
-        title: 'Pneumonia',
-        subtitle: 'O paciente está apresentando, ou se queixando de pneumonia?',
-        inputName: 'pneumonia',
+        title: 'Convulsões',
+        subtitle: 'O paciente está apresentando, ou se queixando de Convulsões?',
+        inputName: 'convulsoes',
     },
     {
-        title: 'Encefalite',
-        subtitle: 'O paciente está apresentando, ou se queixando de Encefalite?',
-        inputName: 'encefalite',
+        title: 'Infecção no ouvido',
+        subtitle: 'O paciente está apresentando, ou se queixando de Infecção no ouvido?',
+        inputName: 'infeccao-no-ouvido',
     },
 ];
