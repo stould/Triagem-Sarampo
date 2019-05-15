@@ -29,10 +29,10 @@ class Container extends Component {
     //calculate score to a specific inputName
     calculateScore = (currentAnswer, inputName) => {
         let score = 0.0;
-        const specialsymptoms = ['tosse','febre','manchas-avermelhadas'];
-
+        const specialsymptoms = ['tosse', 'febre', 'manchas-avermelhadas'];
+        
         if(currentAnswer == 'sim') {
-            if(specialsymptoms.findIndex(inputName) != -1) {
+            if(specialsymptoms.findIndex((symptom) => symptom === inputName) !== -1) {
                 score = 4.0/3.0;
             } else {
                 score = 0.75;
@@ -56,6 +56,7 @@ class Container extends Component {
         this.questionsScore.forEach(function(value) {
             totalScore += value;
         });
+
         const percentage = Math.ceil((100.0 * totalScore) / 10.0);
 
         for (var [key, value] of Object.entries(ranges)) {
@@ -99,7 +100,7 @@ class Container extends Component {
                         <br></br>
                         <h3>Assinale quais são os sintomas apresentados pelo paciente?</h3>
                         <br></br>
-                        
+
                         {FORM_QUESTIONS.map((item, index) => (
                             <div key={index}>
                                 <Question
