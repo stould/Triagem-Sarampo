@@ -1,5 +1,1 @@
-node_modules/
-build/*
-
-# keep the empty dir
-!build/.gitkeep
+node_modules

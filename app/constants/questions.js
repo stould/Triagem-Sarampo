@@ -1,4 +1,4 @@
-export const QUESTIONS = [
+export const FORM_QUESTIONS = [
     {
         title: 'Manchas Avermelhadas',
         subtitle: 'O paciente está apresentando, ou se queixando de manchas avermelhadas na pele (exantema maculopapular eritematoso), que começam no rosto e progridem em direção aos pés?',        
