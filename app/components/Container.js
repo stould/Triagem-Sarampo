@@ -17,6 +17,7 @@ class Container extends Component {
     constructor (props) {
         super(props);
 
+        //stores the answers of the form
         this.questionsScore = new Map(FORM_QUESTIONS.map(question => { 
             return [
                 question.inputName,
@@ -25,11 +26,13 @@ class Container extends Component {
         }));
     }
 
+    //calculate score to a specific inputName
     calculateScore = (currentAnswer, inputName) => {
         let score = 0.0;
+        const specialsymptoms = ['tosse','febre','manchas-avermelhadas'];
 
         if(currentAnswer == 'sim') {
-            if(inputName == 'tosse' || inputName == 'febre' || inputName == 'manchas-avermelhadas') {
+            if(specialsymptoms.findIndex(inputName) != -1) {
                 score = 4.0/3.0;
             } else {
                 score = 0.75;
@@ -41,17 +44,20 @@ class Container extends Component {
         return score;
     }
 
+    //calculates the result from the form
     getResult = () => {
-        let totalScore = 0.0;
-        this.questionsScore.forEach(function(value) {
-            totalScore += value;
-        });
-        const percentage = Math.ceil((100.0 * totalScore) / 10.0);
         const ranges = {
             'Alto indício de sarampo': [70, 100],
             'Indício de sarampo': [45, 69],
             'Baixo indício de sarampo': [0, 44],
         };
+
+        let totalScore = 0.0;
+        this.questionsScore.forEach(function(value) {
+            totalScore += value;
+        });
+        const percentage = Math.ceil((100.0 * totalScore) / 10.0);
+
         for (var [key, value] of Object.entries(ranges)) {
             const low = value[0];
             const high = value[1];
@@ -59,9 +65,11 @@ class Container extends Component {
                 return key;
             }
         }
+
         return null;
     }
 
+    //callback from child
     questionCallBack = (answer) => {
         this.questionsScore.set(
             answer.inputName,
@@ -69,6 +77,7 @@ class Container extends Component {
         );
     }
 
+    //handler to a button click event
     handleButtonClick = (event) => {
         event.preventDefault();
         alert(this.getResult());
@@ -90,6 +99,7 @@ class Container extends Component {
                         <br></br>
                         <h3>Assinale quais são os sintomas apresentados pelo paciente?</h3>
                         <br></br>
+                        
                         {FORM_QUESTIONS.map((item, index) => (
                             <div key={index}>
                                 <Question
@@ -110,6 +120,7 @@ class Container extends Component {
                             Finalizar triagem
                         </button>
                     </div>
+
                     <div className="col-2">
                     </div>
                 </div>

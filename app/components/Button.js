@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
+//this class has purpose to create a component to be tested, just for examples purpose
 class Button extends Component {
 
     constructor (props) {

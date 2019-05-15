@@ -12,7 +12,8 @@ class Question extends Component {
         
     }
     
-    handleCheckBoxChange = (event) => {
+    //handler to radion button change event
+    handleRadioButtonChange = (event) => {
         this.props.callBackFromParent({
             currentAnswer: event.currentTarget.value,
             inputName: this.inputName
@@ -33,8 +34,9 @@ class Question extends Component {
                             name={this.inputName}
                             value="sim"
                             defaultChecked
-                            onChange={this.handleCheckBoxChange}
+                            onChange={this.handleRadioButtonChange}
                         ></input>
+
                         <label className="form-check-label">
                             Sim
                         </label>
@@ -46,8 +48,9 @@ class Question extends Component {
                             type="radio"
                             name={this.inputName}
                             value="nao"
-                            onChange={this.handleCheckBoxChange}
+                            onChange={this.handleRadioButtonChange}
                         ></input>
+                        
                         <label className="form-check-label">
                             Não
                         </label>
